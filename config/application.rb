@@ -19,5 +19,14 @@ module MyApp
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
+    config.to_prepare do
+    Devise::SessionsController.layout "ext_site"
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application"  : "ext_site"}
+    Devise::ConfirmationsController.layout "ext_site"
+    Devise::UnlocksController.layout "ext_site"
+    Devise::PasswordsController.layout proc{ |controller| user_signed_in? ? "application" : "ext_site" }
+    end    
+    
   end
 end

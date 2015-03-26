@@ -41,6 +41,12 @@ gem 'spring',        group: :development
 #External Gem 1 requires therubyracer
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+#External Gem 2
+gem 'devise' 
+
+#Internal Gem 1
+#Internal Gem 2
+
 #For Heroku
 gem 'rails_12factor', group: :production
 
