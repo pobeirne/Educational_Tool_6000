@@ -1,7 +1,23 @@
 Rails.application.routes.draw do
   
+   
+
+  resources :quizzes
+
+  get 'overview/quiz'
+
+  get 'overview/result'
+
   devise_for :users
+  
+  authenticated :user do      
+    resources :profiles
+    root :to => "overview#user", :as => "authenticated_root"
+  end
+   
   root 'welcome#index'
+   
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

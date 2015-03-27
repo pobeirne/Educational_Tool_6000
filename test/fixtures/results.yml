@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_correct: 1
+  num_incorrect: 1
+  grade: 1
+  duration: MyString
+  user_id: 
+  quiz_id: 
+
+two:
+  num_correct: 1
+  num_incorrect: 1
+  grade: 1
+  duration: MyString
+  user_id: 
+  quiz_id: 

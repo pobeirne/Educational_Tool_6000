@@ -1,3 +1,7 @@
 $(function(){
-  /* Your JavaScript goes here... */
+	
+ setTimeout(function(){
+    $('#flash').remove();
+ }, 4000);
+ 
 });

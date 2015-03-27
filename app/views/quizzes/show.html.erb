@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @quiz.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @quiz.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @quiz.user %>
+</p>
+
+<p>
+  <strong>Is attempted:</strong>
+  <%= @quiz.is_attempted %>
+</p>
+
+<p>
+  <strong>Is complete:</strong>
+  <%= @quiz.is_complete %>
+</p>
+
+<p>
+  <strong>Num of questions:</strong>
+  <%= @quiz.num_of_questions %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @quiz.category %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @quiz.level %>
+</p>
+
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>

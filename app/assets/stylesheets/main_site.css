@@ -5,13 +5,21 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
- 
+
+html, body {
+    height: 100%;
+    padding-top: 0px;
+}
+body {
+    /*background: url("http://subtlepatterns.com/patterns/random_grey_variations.png") repeat scroll 0% 0% transparent;*/
+}
 
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
+ margin-top:10px;
   height: 60px;
   background-color: #101010;
 }
@@ -21,6 +29,47 @@
   padding-left: 15px;
 }
 
+#push {
+    height: 80px;
+}
+
 .container .text-muted {
-  margin: 20px 0;
+  margin: 20px 0;  
+}
+
+
+.bg-colour-main{
+	/*background: url("http://subtlepatterns.com/patterns/confectionary.png") repeat scroll 0% 0% transparent;*/
+	
+}
+
+.txt-red > a{ color:#FF0000}
+
+
+
+/* User sign in and sign forms. */
+.border-form-div {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
 }

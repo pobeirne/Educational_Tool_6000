@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  user_id: 
+  is_attempted: false
+  is_complete: false
+  num_of_questions: MyString
+  category_id: 
+  level_id: 
+
+two:
+  title: MyString
+  description: MyText
+  user_id: 
+  is_attempted: false
+  is_complete: false
+  num_of_questions: MyString
+  category_id: 
+  level_id: 

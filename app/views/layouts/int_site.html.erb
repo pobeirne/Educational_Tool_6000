@@ -52,12 +52,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>        
-        <%= link_to  "Project name", root_path , class: "navbar-brand"%>
+        <%= link_to  "Education Tool", root_path, class: "navbar-brand"%>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav navbar-right">            
-            <li><%= link_to "Sign Up", new_user_registration_path  %></li>
-            <li><%= link_to "Login", new_user_session_path  %></li>
+           <ul class="nav navbar-nav navbar-left"> 
+          	<li><%= link_to "User Overview", root_path %></li> 
+          	<li><%= link_to "Quiz Overview",  overview_quiz_path %></li> 
+          	<li><%= link_to "Results Overview", overview_result_path %></li> 
+          </ul>          
+          <ul class="nav navbar-nav navbar-right">           	          	          	   
+          	<li><%= link_to current_user.email, edit_user_registration_path ,style: 'color:#357EBD;' %></li>           	
+            <li><%= link_to "Sign out", destroy_user_session_path %></li>                              
           </ul>
         </div>  
         </div>   
@@ -65,17 +70,16 @@
     <div class="container" role"<%= controller.controller_name%>>             
         <div class="row">
    			<div class="col-lg-12">
-   				<div id="flash"><%= bootstrap_flash %></div>
+   				<div id="flash"><%= bootstrap_flash %></div>  
            </div> 
         </div>        
-        <div class="row">
+        <div class="row bg-colour-main">
    			<div class="col-lg-12">
-      		
+      			 <%= yield %> 
             </div> 
         </div>
-        <%= yield %> 
-    </div> <!-- /container --> 
-     <div id="push"></div>
+    </div> <!-- /container -->  
+      <div id="push"></div>
 		<div class="navbar navbar-inverse navbar-fixed-bottom">
 			<div class="container">
 				<p class="navbar-text pull-left">
@@ -85,6 +89,6 @@
 					By Paul O'Beirne x10203800
 				</p>
 			</div>
-		</div> 
+		</div>
   </body>
 </html>
