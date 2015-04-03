@@ -18,17 +18,19 @@ class OverviewController < ApplicationController
       @average  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).average("results.grade")
       
       #calculate avg duration      
-      @arr  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).select("results.duration")
-            
-      @nums = Array.[]
-      @arr.each_with_index do |a , index|
-      @nums[index] = @arr[index].duration
-      end
-      
-      t = Quiztimeutil.new(current_user.id)
-      @avg_duration =  t.avg_of_times(@nums)
-      
-     
+      @dur_arr  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).select("results.duration")
+              
+      if @dur_arr.size > 0
+          @dur = Array.[]
+          @dur_arr.each_with_index do |a , index|
+          @dur[index] = @dur_arr[index].duration
+          end
+          t = Quiztimeutil.new(1)
+          @avg_duration  = t.avg_of_times(@dur)
+      else
+      @avg_duration = 0
+      end    
+                  
       
       #get users highest grade
       @highest_result = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).order("grade DESC").first

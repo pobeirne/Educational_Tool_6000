@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-   
+  root 'welcome#index' 
 
   
   devise_for :users
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     root :to => "overview#user", :as => "authenticated_root"
   end
    
-  root 'welcome#index'
+ 
    
   
 
