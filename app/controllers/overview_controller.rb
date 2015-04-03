@@ -15,10 +15,10 @@ class OverviewController < ApplicationController
       @quiz_count = Quiz.where(:user_id => current_user.id , :is_complete => true, :level_id => @profile.level_id).count
       
       #calculate avg grade
-      @average  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).average("results.grade")
+      @average  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).average("results.grade")
       
       #calculate avg duration      
-      @dur_arr  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).select("results.duration")
+      @dur_arr  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).select("results.duration")
               
       if @dur_arr.size > 0
           @dur = Array.[]
@@ -33,10 +33,10 @@ class OverviewController < ApplicationController
                   
       
       #get users highest grade
-      @highest_result = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).order("grade DESC").first
+      @highest_result = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).order("grade DESC").first
       
       #get users lowest grade
-      @lowest_result = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).order("grade ASC").first      
+      @lowest_result = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = #{@profile.level_id}" ).order("grade ASC").first      
     else
       #redirect user to make a new profile
       redirect_to new_profile_path()
@@ -72,9 +72,9 @@ class OverviewController < ApplicationController
       
    
     #beginer stats queries
-    @count_beginner  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).count
-    @average_beginner  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).average("results.grade")
-    @dur_arr_beginner = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).select("results.duration")
+    @count_beginner  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).count
+    @average_beginner  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).average("results.grade")
+    @dur_arr_beginner = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).select("results.duration")
     
     if @dur_arr_beginner.size > 0
           @dur = Array.[]
@@ -87,15 +87,15 @@ class OverviewController < ApplicationController
       @avg_duration_beginner = 0
     end    
         
-    @highest_result = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).order("results.grade DESC").first
-    @lowest_result = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).order("results.grade ASC").first
+    @highest_result = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).order("results.grade DESC").first
+    @lowest_result = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 1" ).order("results.grade ASC").first
     
     
         
     #intermediate stats queries
-    @count_intermediate  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).count
-    @average_intermediate  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).average("results.grade")
-    @dur_arr_intermediate  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).select("results.duration")
+    @count_intermediate  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).count
+    @average_intermediate  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).average("results.grade")
+    @dur_arr_intermediate  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).select("results.duration")
     
     if @dur_arr_intermediate.size > 0
           @dur = Array.[]
@@ -108,15 +108,15 @@ class OverviewController < ApplicationController
       @avg_duration_intermediate = 0
     end
     
-    @highest_intermediate = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).order("results.grade DESC").first
-    @lowest_intermediate = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).order("results.grade ASC").first
+    @highest_intermediate = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).order("results.grade DESC").first
+    @lowest_intermediate = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 2" ).order("results.grade ASC").first
    
     
     
     #advanced stats queries
-    @count_advanced  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).count
-    @average_advanced  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).average("results.grade")
-    @dur_arr_advanced  = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).select("results.duration")
+    @count_advanced  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).count
+    @average_advanced  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).average("results.grade")
+    @dur_arr_advanced  = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).select("results.duration")
     
     if @dur_arr_advanced.size > 0
           @dur = Array.[]
@@ -129,8 +129,8 @@ class OverviewController < ApplicationController
       @avg_duration_advanced = 0
     end    
 
-    @highest_advanced = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).order("results.grade DESC").first
-    @lowest_advanced = Result.joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).order("results.grade ASC").first
+    @highest_advanced = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).order("results.grade DESC").first
+    @lowest_advanced = Result.where(:user_id => current_user.id).joins(:quiz).where("results.user_id = quizzes.user_id and quizzes.level_id = 3" ).order("results.grade ASC").first
    
    
     #overall stats queries
