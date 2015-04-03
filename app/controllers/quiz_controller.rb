@@ -102,7 +102,7 @@ class QuizController < ApplicationController
       @incorrect = @incorrect.size
     end
     
-    t = QuizDuration.new(@user.id)
+    t = Quiztimeutil.new(@user.id)
     @duration =  t.getDurationInMinutes(@quiz.start_at,@quiz.end_at)
     
     @result = Result.new(
