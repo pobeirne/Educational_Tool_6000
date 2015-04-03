@@ -2,32 +2,18 @@ Rails.application.routes.draw do
   
    
 
-  get 'quiz/create'
-  get 'quiz/cancel'
-  get 'quiz/start'
-  post 'quiz/finish'  
-  get 'quiz/result'
   
-  
-#match '/404', to: 'errors#file_not_found', via: :all
-#match '/422', to: 'errors#unprocessable', via: :all
-#match '/500', to: 'errors#internal_server_error', via: :all
-
-  resources :quizzes
-  resources :questions
-  resources :answers
-  resources :results
- 
-
-   
-  get 'overview/quiz'
-
-  get 'overview/result'
-
   devise_for :users
   
-  authenticated :user do      
-    resources :profiles
+  authenticated :user do
+    get 'quiz/create'
+    get 'quiz/cancel'
+    get 'quiz/start'
+    post'quiz/finish'  
+    get 'quiz/result'     
+    get 'overview/quiz'
+    get 'overview/result'   
+    resources :profiles    
     root :to => "overview#user", :as => "authenticated_root"
   end
    
