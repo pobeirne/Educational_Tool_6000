@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327214130) do
+ActiveRecord::Schema.define(version: 20150328131725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 20150327214130) do
   end
 
   create_table "profiles", force: true do |t|
-    t.string   "user_name"
-    t.text     "description"
-    t.string   "avatar_url"
-    t.string   "college_name"
-    t.string   "course_name"
-    t.integer  "year"
-    t.integer  "level_id"
+    t.string   "user_name",    default: "",                                                                                null: false
+    t.text     "description",  default: "",                                                                                null: false
+    t.string   "avatar_url",   default: "https://www.science.unsw.edu.au/files/news/527C868C9284958A22F9E4D448BDDA12.JPG", null: false
+    t.string   "college_name", default: "",                                                                                null: false
+    t.string   "course_name",  default: "",                                                                                null: false
+    t.integer  "year",         default: 1,                                                                                 null: false
+    t.integer  "level_id",     default: 1
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,9 +53,20 @@ ActiveRecord::Schema.define(version: 20150327214130) do
   add_index "profiles", ["level_id"], name: "index_profiles_on_level_id", using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "question_answers", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "question_answers", ["answer_id"], name: "index_question_answers_on_answer_id", using: :btree
+  add_index "question_answers", ["question_id"], name: "index_question_answers_on_question_id", using: :btree
+
   create_table "questions", force: true do |t|
     t.text     "question"
     t.text     "hint"
+    t.string   "image"
     t.integer  "category_id"
     t.integer  "level_id"
     t.datetime "created_at"
@@ -64,16 +75,6 @@ ActiveRecord::Schema.define(version: 20150327214130) do
 
   add_index "questions", ["category_id"], name: "index_questions_on_category_id", using: :btree
   add_index "questions", ["level_id"], name: "index_questions_on_level_id", using: :btree
-
-  create_table "questions_answers", force: true do |t|
-    t.integer  "question_id"
-    t.integer  "answer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "questions_answers", ["answer_id"], name: "index_questions_answers_on_answer_id", using: :btree
-  add_index "questions_answers", ["question_id"], name: "index_questions_answers_on_question_id", using: :btree
 
   create_table "quiz_questions", force: true do |t|
     t.integer  "quiz_id"
@@ -91,14 +92,14 @@ ActiveRecord::Schema.define(version: 20150327214130) do
     t.boolean  "is_attempted"
     t.boolean  "is_complete"
     t.string   "num_of_questions"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.integer  "user_id"
-    t.integer  "category_id"
     t.integer  "level_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "quizzes", ["category_id"], name: "index_quizzes_on_category_id", using: :btree
   add_index "quizzes", ["level_id"], name: "index_quizzes_on_level_id", using: :btree
   add_index "quizzes", ["user_id"], name: "index_quizzes_on_user_id", using: :btree
 

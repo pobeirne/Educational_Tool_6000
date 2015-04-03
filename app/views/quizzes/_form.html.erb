@@ -1,49 +1,77 @@
-<%= form_for(@quiz) do |f| %>
-  <% if @quiz.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+<%= form_for @quiz, :html => { :class => "form-horizontal quiz" } do |f| %>
 
-      <ul>
-      <% @quiz.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @quiz.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @quiz.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:title) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+  <div class="form-group">
+    <%= f.label :is_attempted, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :is_attempted, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:is_attempted) %>
   </div>
-  <div class="field">
-    <%= f.label :is_attempted %><br>
-    <%= f.check_box :is_attempted %>
+  <div class="form-group">
+    <%= f.label :is_complete, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :is_complete, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:is_complete) %>
   </div>
-  <div class="field">
-    <%= f.label :is_complete %><br>
-    <%= f.check_box :is_complete %>
+  <div class="form-group">
+    <%= f.label :num_of_questions, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :num_of_questions, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:num_of_questions) %>
   </div>
-  <div class="field">
-    <%= f.label :num_of_questions %><br>
-    <%= f.text_field :num_of_questions %>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
   </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+ 
+  <div class="form-group">
+    <%= f.label :level_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :level_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:level_id) %>
   </div>
-  <div class="field">
-    <%= f.label :level_id %><br>
-    <%= f.text_field :level_id %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                quizzes_path, :class => 'btn btn-default' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

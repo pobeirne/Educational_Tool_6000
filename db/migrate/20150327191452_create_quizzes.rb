@@ -5,10 +5,10 @@ class CreateQuizzes < ActiveRecord::Migration
       t.text :description
       t.boolean :is_attempted
       t.boolean :is_complete
-      t.string :num_of_questions
-            
+      t.string :num_of_questions 
+      t.datetime :start_at , null: true  
+      t.datetime :end_at , null: true 
       t.references :user, index: true
-      t.references :category, index: true
       t.references :level, index: true
       t.timestamps
     end

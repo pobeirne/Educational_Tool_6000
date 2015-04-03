@@ -20,15 +20,18 @@ module MyApp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     
-
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.exceptions_app = self.routes
     
-    config.to_prepare do
-    Devise::SessionsController.layout proc{ |controller| user_signed_in? ? "int_site"  : "ext_site"}
-    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "int_site"  : "ext_site"}
-    Devise::ConfirmationsController.layout "ext_site"
-    Devise::UnlocksController.layout "ext_site"
-    Devise::PasswordsController.layout proc{ |controller| user_signed_in? ? "int_site" : "ext_site" } 
-    end    
+    #config.to_prepare do
+    #Devise::SessionsController.layout proc{ |controller| user_signed_in? ? "int_site"  : "ext_site"}
+    #Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "int_site"  : "ext_site"}
+    #Devise::ConfirmationsController.layout "ext_site"
+    #Devise::UnlocksController.layout "ext_site"
+    #Devise::PasswordsController.layout proc{ |controller| user_signed_in? ? "int_site" : "ext_site" } 
+    
+    #ErrorsController.layout proc{ |controller| user_signed_in? ? "int_site"  : "ext_site"}
+    #end    
     
   end
 end

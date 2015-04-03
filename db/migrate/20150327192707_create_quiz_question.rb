@@ -1,4 +1,4 @@
-class CreateQuizQuestions < ActiveRecord::Migration
+class CreateQuizQuestion < ActiveRecord::Migration
   def change
     create_table :quiz_questions do |t|
       t.belongs_to :quiz, index: true

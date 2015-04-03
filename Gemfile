@@ -44,8 +44,20 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 #External Gem 2
 gem 'devise' 
 
+#External Gem 3
+gem 'kaminari'
+
+#External Gem 4
+gem 'gaffe'
+
+
 #Internal Gem 1
+#gem "gradereval",  :path => "/home/pobeirne/Desktop/Projects/gems/gradereval/"
+gem 'gradereval', :git => 'git://github.com/pobeirne/gradereval.git'
+
 #Internal Gem 2
+#gem "quiztimeutil",  :path => "/home/pobeirne/Desktop/Projects/gems/quiztimeutil/"
+gem 'quiztimeutil', :git => 'git://github.com/pobeirne/quiztimeutil.git'
 
 #For Heroku
 gem 'rails_12factor', group: :production

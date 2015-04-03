@@ -1,10 +1,49 @@
 <% title "Welcome" %>
-
-
-
 <!-- Page Heading -->
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Welcome</h1>
 	</div>
 </div>
+<!-- /.row -->
+<header class="jumbotron hero-spacer">
+	<h1>A Warm Welcome!</h1>
+	<p>
+		My name is Paul OBeirne and this is a Ruby on Rails website developed as part of a college project.
+		The site will allow you to create a new account and take quizs in which your reults will be evaluated 
+		to determine which set of questions best suits your understanding of the subject material.
+	</p>
+</header>
+
+<!-- Page Features -->
+<div class="row text-center">
+
+	<div class="col-md-6 col-sm-12 hero-feature">
+		<div class="thumbnail">
+			<div class="caption">
+				<h3>Sign up for a new accout</h3>
+				<p>
+					Sigh up and test your knowledge now!!!
+				</p>
+				<p>
+					<%= link_to "Sign Up", new_user_registration_path  , :class => 'btn btn-primary btn-block' , :role => 'button'%>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6 col-sm-12 hero-feature">
+		<div class="thumbnail">
+			<div class="caption">
+				<h3>Log into your account </h3>
+				<p>
+					Login and start a new quiz now!!!
+				</p>
+				<p>
+					<%= link_to "Login", new_user_session_path , :class => 'btn btn-primary btn-block' , :role => 'button'%>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.row -->

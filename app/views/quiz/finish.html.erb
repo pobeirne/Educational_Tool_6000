@@ -1,0 +1,33 @@
+<h1>Quiz#result</h1>
+<p>Find me in app/views/quiz/result.html.erb</p>
+
+
+<%- model_class = Result -%>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:num_correct) %></th>
+      <th><%= model_class.human_attribute_name(:num_incorrect) %></th>
+      <th><%= model_class.human_attribute_name(:grade) %></th>
+      <th><%= model_class.human_attribute_name(:duration) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:quiz_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>      
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+      	<td><%= @result.id %></td>
+        <td><%= @result.num_correct %></td>
+        <td><%= @result.num_incorrect %></td>
+        <td><%= @result.grade %></td>
+        <td><%= @result.duration %></td>
+        <td><%= @result.user_id %></td>
+        <td><%= @result.quiz_id %></td>
+        <td><%=l @result.created_at %></td>        
+      </tr>
+   
+  </tbody>
+</table>

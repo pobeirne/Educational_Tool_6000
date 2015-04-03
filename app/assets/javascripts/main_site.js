@@ -2,6 +2,6 @@ $(function(){
 	
  setTimeout(function(){
     $('#flash').remove();
- }, 4000);
+ }, 4000);   
  
 });

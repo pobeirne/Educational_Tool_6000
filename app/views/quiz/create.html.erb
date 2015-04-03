@@ -1,0 +1,61 @@
+<% title "Quiz" %>
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Create Quiz</h1>
+	</div>
+</div>
+<!-- /.row -->
+<div class="row">
+
+	<div class="col-lg-12 col-md-12 col-sm-12">
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h4 style="text-align: center">Quiz Details</h4>
+			</li>
+			<li class="list-group-item">
+				<%= label_tag :id %> : <%= @quiz.id %>
+			</li>
+			<li class="list-group-item">
+				<%= label_tag :title %> : <%= @quiz.title %>
+			</li>
+			<li class="list-group-item">
+				<%= label_tag :description %> : <%= @quiz.description %>
+			</li>
+			<li class="list-group-item">				
+				<%= label_tag :is_attempted %> : <%= @quiz.is_attempted %>
+			</li>
+			<li class="list-group-item">
+				<%= label_tag :is_complete %> : <%= @quiz.is_complete%>
+			</li>
+			<li class="list-group-item">
+				<%= label_tag :num_of_questions %> : <%= @quiz.num_of_questions %>
+			</li>
+			<li class="list-group-item">
+				<%= label_tag :level_id %> : <%= @quiz.level_id %>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">	
+	
+	<div class="col-lg-3">
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			<div class="btn-group" role="group">
+				<%= link_to "Cancel", quiz_cancel_path(:id => @quiz.id) , :class => 'btn btn-primary btn-large' , :role => 'button'%>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-3"></div>
+	<div class="col-lg-3"></div>
+	<div class="col-lg-3">
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			<div class="btn-group" role="group">
+				<%= link_to "Start Quiz", quiz_start_path(:id => @quiz.id), :class => 'btn btn-primary btn-large' , :role => 'button'%>
+			</div>
+		</div>
+	</div>
+</div>

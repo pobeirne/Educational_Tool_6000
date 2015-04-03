@@ -1,0 +1,57 @@
+<% title "Result" %>
+<%- model_class = Result -%>
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Result</h1>
+	</div>
+</div>
+<!-- /.row -->
+<header class="jumbotron hero-spacer">
+	<h2 class="text-center">Congrats <%= @profile.user_name%>!</h2>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<h4 style="text-align: center">Result details</h4>
+				</li>
+				<li class="list-group-item">
+					<%= label_tag :quiz_id %> : <%= @result.quiz_id %>
+				</li>
+				<li class="list-group-item">
+					<%= label_tag :num_correct %> : <%= @result.num_correct %>
+				</li>
+				<li class="list-group-item">
+					<%= label_tag :num_incorrect %> : <%= @result.num_incorrect %>
+				</li>
+				<li class="list-group-item">
+					<%= label_tag :grade %> : <%= number_to_percentage(@result.grade, precision: 0) %>
+				</li>
+				<li class="list-group-item">
+					<%= label_tag :duration %> : <%= @result.duration %>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="btn-group btn-group-justified" role="group" aria-label="...">
+				<div class="btn-group" role="group">
+					<%= link_to "Quiz Overview", overview_quiz_path , :class => 'btn btn-success btn-large' , :role => 'button'%>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-offset-6">
+			<div class="btn-group btn-group-justified" role="group" aria-label="...">
+				<div class="btn-group" role="group">
+					<%= link_to "Results Overview", overview_result_path , :class => 'btn btn-success btn-large' , :role => 'button'%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</header>
+
+

@@ -1,6 +1,10 @@
 class Quiz < ActiveRecord::Base  
+  paginates_per 5 
+  
   has_one :user
-  has_one :category
   has_one :level  
-  has_and_belongs_to_many :questions 
+  
+  has_many :quiz_questions
+  has_many :questions, :through => :quiz_questions
+
 end

@@ -1,0 +1,67 @@
+<% title "Quiz Start" %>
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Quiz Start</h1>
+	</div>
+</div>
+<!-- /.row -->
+<label id="dis" style="width:250px;"></label><br>
+
+<!-- Page Features -->
+<div class="row">
+	<form accept-charset="UTF-8" method='post' action='/quiz/finish/'>
+	<div class="col-md-12 col-sm-12">				
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th colspan="8" ><%= @quiz.title%></th>
+				<tr>
+				<tr>
+					<th>Id</th>
+					<th>Question</th>
+					<th>Possible Answers</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @quiz.questions.each_with_index do |q , index| %>
+				<tr>
+					<td><%= index +1 %>:</td>
+
+					<td><%= q.question %></td>
+					<td> 						
+						<% q.answers.each do |a | %> <label>
+						<input type="radio" id="<%= index %>" name="value[<%= index %>]" value="<%= a.id%>" />
+						<%= a.answer%> </label>												
+						<br/>
+						<br/>
+						<% end %> 					
+					</td>						
+				</tr>
+				<% end %>
+			</tbody>
+		</table>		
+	</div>
+	
+	<div class="col-lg-3">
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			<div class="btn-group" role="group">
+				<%= link_to "Cancel", quiz_cancel_path(:id => @quiz.id) , :class => 'btn btn-primary btn-large' , :role => 'button'%>
+			</div>
+		</div>
+	</div>
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <%= hidden_field_tag "id", @quiz.id %>
+	<div class="col-lg-3"></div>
+	<div class="col-lg-3"></div>
+	<div class="col-lg-3">
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">		
+			<div class="btn-group" role="group">
+				<%= submit_tag nil, :class => 'btn btn-primary btn-large' ,:role => 'submit' , :id => 'submit'%>				
+		</div>
+	</div>	
+	</form>
+</div>
+<!-- /.row -->
+

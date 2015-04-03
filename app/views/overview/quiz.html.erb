@@ -1,5 +1,5 @@
 <% title "Quz Overview" %>
-
+<%- model_class = Quiz -%>
 <!-- Page Heading -->
 <div class="row">
 	<div class="col-lg-12">
@@ -8,87 +8,101 @@
 </div>
 <!-- /.row -->
 
+<div class="row">
+	<div class="col-md-4 col-sm-12">
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h4 class="text-center">Quiz Stats</h4>
+			</li>
+			<li class="list-group-item">
+				Total               : <%= @quiz_count%>
+			</li>
+			<li class="list-group-item">
+				Completed           :  <%= @quiz_count_completed%>
+			</li>
+			<li class="list-group-item">
+				Not Completed       :  <%= @quiz_count_not_completed%>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="col-md-4 col-sm-12 hero-feature">
+		<div class="thumbnail">
+			<div class="caption">
+				<h4 class="text-center">Assesment</h4>
+				<p class="text-muted">
+					It is recomended that you should take an assesment before attempting 
+					to take a quiz for the first time to properly generate appropiat questions.
+				</p>
+				<div class="btn-group btn-group-justified" role="group" aria-label="...">
+					<div class="btn-group" role="group">
+						<%= link_to "Take Assessment", quiz_create_path(:test_type => 1) , :class => 'btn btn-primary btn-large' , :role => 'button'%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-12 hero-feature">
+		<div class="thumbnail">
+			<div class="caption">
+				<h4 class="text-center">Quiz</h4>
+				<p class="text-muted">
+					Each quiz is set to generate a suitable set of question appropiate to 
+					your skill level and evauatle your level up or down.					
+				</p>
+				<div class="btn-group btn-group-justified" role="group" aria-label="...">
+					<div class="btn-group" role="group">
+						<%= link_to "Take Test", quiz_create_path(:test_type => 2) , :class => 'btn btn-primary btn-large' , :role => 'button'%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<!-- Jumbotron Header -->
-<header class="jumbotron hero-spacer">
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi,
-		 in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.
-	</p>
-	<p>
-		<a class="btn btn-primary btn-large">Take an Assesment!</a>
-	</p>
-</header>
-
- <!-- Title -->
+</div>
 <div class="row">
 	<div class="col-lg-12">
-		<h3> Features</h3>
+		<h3 class="page-header">Quiz Table</h3>
 	</div>
 </div>
-
-<!-- Page Features -->
-<div class="row text-center">
-
-	<div class="col-md-3 col-sm-6 hero-feature">
-		<div class="thumbnail">
-			<img src="http://placehold.it/800x500" alt="">
-			<div class="caption">
-				<h3>Feature Label</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				</p>
-				<p>
-					<a href="#" class="btn btn-primary">Buy Now!</a><a href="#" class="btn btn-default">More Info</a>
-				</p>
-			</div>
-		</div>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th><%= model_class.human_attribute_name(:id) %></th>					
+					<th><%= model_class.human_attribute_name(:title) %></th>
+					<th><%= model_class.human_attribute_name(:description) %></th>
+					<th><%= model_class.human_attribute_name(:is_attempted) %></th>
+					<th><%= model_class.human_attribute_name(:is_complete) %></th>
+					<th><%= model_class.human_attribute_name(:num_of_questions) %></th>
+					<th><%= model_class.human_attribute_name(:user_id) %></th>
+					<th><%= model_class.human_attribute_name(:level_id) %></th>
+					<th><%= model_class.human_attribute_name(:start_at) %></th>
+					<th><%= model_class.human_attribute_name(:end_at) %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @quizs.each do |quiz| %>
+				<tr>
+					<td><%= quiz.id %></td>
+					<td><%= quiz.title %></td>
+					<td><%= quiz.description %></td>
+					<td><%= quiz.is_attempted %></td>
+					<td><%= quiz.is_complete %></td>
+					<td><%= quiz.num_of_questions %></td>
+					<td><%= quiz.user_id %></td>
+					<td><%= quiz.level_id %></td>
+					<td><%= quiz.start_at %></td>
+					<td><%= quiz.end_at %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= paginate @quizs %>
 	</div>
-
-	<div class="col-md-3 col-sm-6 hero-feature">
-		<div class="thumbnail">
-			<img src="http://placehold.it/800x500" alt="">
-			<div class="caption">
-				<h3>Feature Label</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				</p>
-				<p>
-					<a href="#" class="btn btn-primary">Buy Now!</a><a href="#" class="btn btn-default">More Info</a>
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-3 col-sm-6 hero-feature">
-		<div class="thumbnail">
-			<img src="http://placehold.it/800x500" alt="">
-			<div class="caption">
-				<h3>Feature Label</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				</p>
-				<p>
-					<a href="#" class="btn btn-primary">Buy Now!</a><a href="#" class="btn btn-default">More Info</a>
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-3 col-sm-6 hero-feature">
-		<div class="thumbnail">
-			<img src="http://placehold.it/800x500" alt="">
-			<div class="caption">
-				<h3>Feature Label</h3>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				</p>
-				<p>
-					<a href="#" class="btn btn-primary">Buy Now!</a><a href="#" class="btn btn-default">More Info</a>
-				</p>
-			</div>
-		</div>
-	</div>
-
 </div>
 <!-- /.row -->
+
+
+  

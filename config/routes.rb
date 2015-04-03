@@ -2,8 +2,24 @@ Rails.application.routes.draw do
   
    
 
-  resources :quizzes
+  get 'quiz/create'
+  get 'quiz/cancel'
+  get 'quiz/start'
+  post 'quiz/finish'  
+  get 'quiz/result'
+  
+  
+#match '/404', to: 'errors#file_not_found', via: :all
+#match '/422', to: 'errors#unprocessable', via: :all
+#match '/500', to: 'errors#internal_server_error', via: :all
 
+  resources :quizzes
+  resources :questions
+  resources :answers
+  resources :results
+ 
+
+   
   get 'overview/quiz'
 
   get 'overview/result'

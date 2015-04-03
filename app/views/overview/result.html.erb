@@ -1,11 +1,122 @@
-<% title "Result Overview" %>
+<% title "Results Overview" %>
+<%- model_class = Result -%>
 
 <!-- Page Heading -->
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Result Overview</h1>
+		<h1 class="page-header">Results Overview  <%= @level%></h1>
+	</div>
+</div>
+<!-- /.row -->
+
+<!-- Page Features -->
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-12">
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h4 class="text-center">Beginner Total Quizess : <%= @count_beginner rescue '0'%></h4>
+			</li>
+			<li class="list-group-item">
+				Average Score   : <%= number_to_percentage(@average_beginner, precision: 0) rescue ''%>
+			</li>
+			<li class="list-group-item">
+				Average duration: <%= @avg_duration_beginner rescue '0'%>
+			</li>
+			<li class="list-group-item">
+				Highest result  : <%= number_to_percentage(@highest_result.grade, precision: 0) rescue ''%>
+			</li>
+			<li class="list-group-item">
+				Lowest result   : <%= number_to_percentage(@lowest_result.grade, precision: 0) rescue ''%>
+			</li>
+		</ul>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-12">
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h4 class="text-center">Intermediate Total Quizess   : <%= @count_intermediate rescue '0'%></h4>
+			</li>
+			<li class="list-group-item">
+				Average Score   : <%= number_to_percentage(@average_intermediate, precision: 0) rescue ''%>
+			</li>
+			<li class="list-group-item">
+				Average duration: <%= @avg_duration_intermediate rescue '0'%>
+			</li>
+			<li class="list-group-item">
+				Highest result  : <%= number_to_percentage(@highest_intermediate.grade, precision: 0) rescue ''%>
+			</li>
+			<li class="list-group-item">
+				Lowest result   : <%= number_to_percentage(@lowest_intermediate.grade, precision: 0) rescue ''%>
+			</li>
+		</ul>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-12">
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h4 class="text-center">Advanced Total Quizess   : <%= @count_advanced rescue '0'%></h4>
+			</li>
+			<li class="list-group-item">
+				Average Score   : <%= number_to_percentage(@average_advanced, precision: 0) rescue ''%>
+			</li>
+			<li class="list-group-item">
+				Average duration: <%= @avg_duration_advanced rescue '0'%>
+			</li>
+			<li class="list-group-item">
+				Highest result  : <%= number_to_percentage(@highest_advanced.grade, precision: 0) rescue ''%>
+			</li>
+			<li class="list-group-item">
+				Lowest result   : <%= number_to_percentage(@lowest_advanced.grade, precision: 0) rescue ''%>
+			</li>
+		</ul>
 	</div>
 </div>
 <!-- /.row -->
 
 
+
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">Results Table</h3>
+	</div>
+</div>
+<!-- Page Features -->
+<div class="row">
+
+	<div class="col-md-12 col-sm-12">			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th><%= model_class.human_attribute_name(:id) %></th>
+						<th><%= model_class.human_attribute_name(:num_correct) %></th>
+						<th><%= model_class.human_attribute_name(:num_incorrect) %></th>
+						<th><%= model_class.human_attribute_name(:grade) %></th>
+						<th><%= model_class.human_attribute_name(:duration) %></th>
+						<th><%= model_class.human_attribute_name(:user_id) %></th>
+						<th><%= model_class.human_attribute_name(:quiz_id) %></th>
+						<th><%= model_class.human_attribute_name(:created_at) %></th>
+						<th><%= model_class.human_attribute_name(:updated_at) %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @results.each do |result| %>
+					<tr>
+						<td><%= result.id %></td>
+						<td><%= result.num_correct %></td>
+						<td><%= result.num_incorrect %></td>
+						<td><%= number_to_percentage(result.grade, precision: 0)%></td>
+						<td><%= result.duration %></td>
+						<td><%= result.user_id %></td>
+						<td><%= result.quiz_id %></td>
+						<td><%= result.created_at %></td>
+						<td><%= result.updated_at %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+
+		<%= paginate @results %>
+	</div>
+</div>
+<!-- /.row -->

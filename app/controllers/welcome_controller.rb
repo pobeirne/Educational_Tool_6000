@@ -1,6 +1,4 @@
-class WelcomeController < ApplicationController
-  layout 'ext_site'
-  
+class WelcomeController < ApplicationController 
   def index
   end
 end
