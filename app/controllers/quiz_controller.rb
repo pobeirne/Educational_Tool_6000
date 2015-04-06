@@ -1,6 +1,6 @@
 class QuizController < ApplicationController
   before_filter :authenticate_user!
-  #require "Gradereval"
+  
   #generate a new quiz
   def create
 
@@ -42,18 +42,6 @@ class QuizController < ApplicationController
       @questions = Question.where(:level_id => @quiz.level_id).limit(10).order("RANDOM()")
     @quiz.questions << @questions
     end
-
-  #quiz insert query
-  #@quiz = Quiz.new(title: 'Testing',description: 'Test description', is_attempted: false ,
-  #  is_complete: false, num_of_questions: 10 ,user_id: @user.id,level_id: @profile.level_id)
-  #@quiz.save
-
-  #questions query
-  #@questions = Question.limit(10).order("RANDOM()")
-
-  #assign questions to quiz manay to many
-  #@quiz.questions << @questions
-
   end
 
   def cancel
@@ -74,12 +62,11 @@ class QuizController < ApplicationController
 
   def finish
 
-    @quiz = Quiz.find(params[:id])    
+    @quiz = Quiz.find(params[:id])
     @quiz.end_at = DateTime.now
     @quiz.is_complete  = true
     @quiz.save
-    
-    
+
     @user = User.find(current_user.id)
     @profile = Profile.find_by_user_id(@user.id)
 
@@ -101,10 +88,10 @@ class QuizController < ApplicationController
     else
       @incorrect = @incorrect.size
     end
-    
+
     t = Quiztimeutil.new(@user.id)
     @duration =  t.getDurationInMinutes(@quiz.start_at,@quiz.end_at)
-    
+
     @result = Result.new(
                         num_correct: @correct.size,
                         num_incorrect: @incorrect,
@@ -115,25 +102,11 @@ class QuizController < ApplicationController
                         )
     @result.save
 
-
-
     #evaluate user every quiz
     mygrader = Gradereval.new(@user.id, @quiz.level_id)
     @new_level = mygrader.evalByGrade(@result.grade)
     @profile.level_id = @new_level
     @profile.save
-
-    #userid ?
-    #@quiz_total = Result.joins(:quiz).where("results.quiz_id = quizzes.id and quizzes.level_id = #{@profile.level_id}" )
-    # .order("results.id DESC").limit(5)
-
-    #@average = Result.joins(:quiz).where("results.quiz_id = quizzes.id and quizzes.level_id = #{@profile.level_id}" )
-    # .order("results.id DESC").limit(5).average("results.grade")
-
-    #mygrader = Grader.new(@user.id, @profile.level_id)
-    #@new_level = mygrader.changeUserLevel(@average,@quiz_total.size)
-    #@profile.level_id = @new_level
-    #@profile.save
 
     respond_to do |format|
       if @result.save
