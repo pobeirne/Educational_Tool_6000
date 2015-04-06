@@ -1,11 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 
 
 ############################################################################################################
@@ -20,28 +14,9 @@ lvl3 = Level.create(name: 'advanced' , description: 'knows a lot')
 ############################################################################################################
 
 
-############################################################################################################  
-#Profile.create(
-#               user_name: 'Paul OBeirne', 
-#              description: 'Cool guy', 
-#               avatar_url: 'https://www.science.unsw.edu.au/files/news/527C868C9284958A22F9E4D448BDDA12.JPG', 
-#               college_name: 'National College Of Ireland', 
-#               course_name: 'BSHC', 
-#               year: '4', 
-#               level_id: lvl1.id, 
-#               user_id: user1.id
-#               )
 ############################################################################################################
+cat1 = Category.create(name: 'Selections' , description: 'boolean Data Type')
 
-
-
-############################################################################################################
-cat1 = Category.create(name: 'Selections' , description: 'boolean Data Type ')
-cat2 = Category.create(name: 'Methods' , description: 'Defining a Method')
-############################################################################################################
-
-
-############################################################################################################
 #1
 question = Question.create(question: 'The less than or equal to comparison operator in Java is __________.',
                            category_id: cat1.id,
@@ -59,6 +34,7 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
+
 
 #2
 question = Question.create(question: 'The equal comparison operator in Java is __________.',
@@ -120,7 +96,6 @@ question.question_answers.create(answer_id: ans1.id)
 question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
-
 
 #6
 question = Question.create(question: 'Which of the following code displays the area of a circle if the radius is positive.',
@@ -231,10 +206,6 @@ question.question_answers.create(answer_id: ans4.id)
 
 
 #12
-
-
-
-#13
 question = Question.create(question: 'Which of the following is equivalent to x != y?',
                            category_id: cat1.id,
                            level_id: lvl1.id
@@ -249,7 +220,7 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 
 
-#14
+#13
 question = Question.create(question: 'Suppose x=10 and y=10. What is x after evaluating the expression (y > 10) && (x-- > 10)?',
                            category_id: cat1.id,
                            level_id: lvl1.id
@@ -264,7 +235,7 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 
 
-#15
+#14
 question = Question.create(question: 'Suppose x=10 and y=10 what is x after evaluating the expression (y > 10) && (x++ > 10).',
                            category_id: cat1.id,
                            level_id: lvl1.id
@@ -278,7 +249,7 @@ question.question_answers.create(answer_id: ans1.id)
 question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 
-#16
+#15
 question = Question.create(question: 'Suppose x=10 and y=10 what is x after evaluating the expression (y >= 10) || (x-- > 10).',
                            category_id: cat1.id,
                            level_id: lvl1.id
@@ -292,7 +263,7 @@ question.question_answers.create(answer_id: ans1.id)
 question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 
-#17
+#16
 question = Question.create(question: 'Suppose x=10 and y=10 what is x after evaluating the expression (y >= 10) || (x++ > 10).',
                            category_id: cat1.id,
                            level_id: lvl1.id
@@ -307,7 +278,7 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 
 
-#18
+#17
 question = Question.create(question: 'To check whether a char variable ch is an uppercase letter, you write ___________.',
                            category_id: cat1.id,
                            level_id: lvl1.id
@@ -325,10 +296,25 @@ question.question_answers.create(answer_id: ans4.id)
 
 
 
-#19
+
+
+
+
+
+
+
+
+
+
+
+############################################################################################################
+cat2 = Category.create(name: 'Selections' , description: 'Formatting Console Output and Strings')
+
+
+#18
 question = Question.create(question: 'The statement System.out.printf("%3.1f", 1234.56) outputs ___________.',
-                           category_id: cat1.id,
-                           level_id: lvl1.id
+                           category_id: cat2.id,
+                           level_id: lvl2.id
                            )
                            
 ans1 = Answer.create( answer: '123.4', is_correct: false)
@@ -343,10 +329,10 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
-#20
+#19
 question = Question.create(question: 'The statement System.out.printf("%3.1e", 1234.56) outputs ___________.',
-                           category_id: cat1.id,
-                           level_id: lvl1.id
+                           category_id: cat2.id,
+                           level_id: lvl2.id
                            )
                            
 ans1 = Answer.create( answer: '0.1e+04', is_correct: false)
@@ -362,10 +348,10 @@ question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
 
-#21
+#20
 question = Question.create(question: 'The statement System.out.printf("%5d", 123456) outputs ___________.',
-                           category_id: cat1.id,
-                           level_id: lvl1.id
+                           category_id: cat2.id,
+                           level_id: lvl2.id
                            )
                            
 ans1 = Answer.create( answer: '12345', is_correct: false)
@@ -382,8 +368,8 @@ question.question_answers.create(answer_id: ans5.id)
 
 #21
 question = Question.create(question: 'The statement System.out.printf("%10s", "123456") outputs ___________. (Note: * represents a space)',
-                           category_id: cat1.id,
-                           level_id: lvl1.id
+                           category_id: cat2.id,
+                           level_id: lvl2.id
                            )
                            
 ans1 = Answer.create( answer: '123456****', is_correct: false)
@@ -398,8 +384,8 @@ question.question_answers.create(answer_id: ans4.id)
 
 #22
 question = Question.create(question: 'Suppose a number contains integer value 4, which of the following statement is correct?',
-                           category_id: cat1.id,
-                           level_id: lvl1.id
+                           category_id: cat2.id,
+                           level_id: lvl2.id
                            )
                            
 ans1 = Answer.create( answer: 'System.out.printf("%3d %4d", number, Math.pow(number, 1.5));', is_correct: false)
@@ -414,10 +400,15 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
+
+############################################################################################################
+cat3 = Category.create(name: 'Selections' , description: 'Operator Precedence and Associativity')
+
+
 #23
 question = Question.create(question: 'The order of the precedence (from high to low) of the operators binary +, *, &&, || is:',
-                           category_id: cat1.id,
-                           level_id: lvl1.id
+                           category_id: cat3.id,
+                           level_id: lvl2.id
                            )
                            
 ans1 = Answer.create( answer: '&&, ||, *, +', is_correct: false)
@@ -433,8 +424,8 @@ question.question_answers.create(answer_id: ans4.id)
 
 #24
 question = Question.create(question: 'Which of the following operators are right-associative.',
-                           category_id: cat1.id,
-                           level_id: lvl1.id
+                           category_id: cat3.id,
+                           level_id: lvl2.id
                            )
                            
 ans1 = Answer.create( answer: '*', is_correct: false)
@@ -452,7 +443,7 @@ question.question_answers.create(answer_id: ans5.id)
 
 #25
 question = Question.create(question: 'What is the value of the following expression? true || true && false',
-                           category_id: cat1.id,
+                           category_id: cat3.id,
                            level_id: lvl1.id
                            )                 
                                      
@@ -463,10 +454,14 @@ question.question_answers.create(answer_id: ans1.id)
 question.question_answers.create(answer_id: ans2.id)
 
 
-#25
+############################################################################################################
+
+cat4 = Category.create(name: 'Methods' , description: 'Defining a Method')
+
+#26
 question = Question.create(question: 'Suppose your method does not return any value, which of the following keywords can be used as a return type?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat4.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'void', is_correct: true)
 ans2 = Answer.create( answer: 'int', is_correct: false)
@@ -481,10 +476,10 @@ question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
 
-#26
+#27
 question = Question.create(question: 'The signature of a method consists of ____________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat4.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'method name', is_correct: false)
 ans2 = Answer.create( answer: 'method name and parameter list', is_correct: true)
@@ -497,10 +492,10 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#27
+#28
 question = Question.create(question: 'All Java applications must have a method __________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat4.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'public static Main(String[] args)', is_correct: false)
 ans2 = Answer.create( answer: 'public static Main(String args[])', is_correct: false)
@@ -515,10 +510,14 @@ question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
 
-#28
+############################################################################################################
+
+cat5 = Category.create(name: 'Methods' , description: 'Calling a Method')
+
+#29
 question = Question.create(question: 'Arguments to methods always appear within __________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat5.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'brackets', is_correct: false)
 ans2 = Answer.create( answer: 'parentheses', is_correct: true)
@@ -530,11 +529,11 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
-#29
+#30
 question = Question.create(question: 'Each time a method is invoked, the system stores parameters and local variables in an area of memory, 
                                       known as _______, which stores elements in last-in first-out fashion.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat5.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'a heap', is_correct: false)
 ans2 = Answer.create( answer: 'storage area', is_correct: false)
@@ -547,10 +546,17 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#30
+
+
+############################################################################################################
+
+cat6 = Category.create(name: 'Methods' , description: 'Void Method Example')
+
+
+#31
 question = Question.create(question: 'Which of the following should be defined as a void method?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat6.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'Write a method that prints integers from 1 to 100.', is_correct: true)
 ans2 = Answer.create( answer: 'Write a method that returns a random integer from 1 to 100.', is_correct: false)
@@ -563,12 +569,15 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
+############################################################################################################
 
-#31
+cat7 = Category.create(name: 'Methods' , description: 'Passing Parameters by Values')
+
+#32
 question = Question.create(question: 'When you invoke a method with a parameter, the value of the argument is 
                                       passed to the parameter. This is referred to as _________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat7.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'method invocation', is_correct: false)
 ans2 = Answer.create( answer: 'pass by value', is_correct: true)
@@ -581,10 +590,16 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#32
+############################################################################################################
+
+cat8 = Category.create(name: 'Methods' , description: 'The Scope of Variables')
+
+
+
+#33
 question = Question.create(question: 'A variable defined inside a method is referred to as __________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat8.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: 'a global variable', is_correct: false)
 ans2 = Answer.create( answer: 'a method variable', is_correct: false)
@@ -597,11 +612,14 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
+############################################################################################################
 
-#33
+cat9 = Category.create(name: 'Methods' , description: 'The Math Class')
+
+#34
 question = Question.create(question: 'Which of the following is a possible output from invoking Math.random()?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '3.43', is_correct: false)
 ans2 = Answer.create( answer: '0.5', is_correct: true)
@@ -613,10 +631,10 @@ question.question_answers.create(answer_id: ans3.id)
 
 
 
-#33
+#35
 question = Question.create(question: 'What is Math.round(3.6)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '3.0', is_correct: false)
 ans2 = Answer.create( answer: '3', is_correct: false)
@@ -628,10 +646,10 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
-#34
+#36
 question = Question.create(question: 'What is Math.rint(3.6)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '3.0', is_correct: false)
 ans2 = Answer.create( answer: '3', is_correct: false)
@@ -643,10 +661,10 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
-#35
+#37
 question = Question.create(question: 'What is Math.rint(3.5)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '3.0', is_correct: false)
 ans2 = Answer.create( answer: '3', is_correct: false)
@@ -661,10 +679,10 @@ question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
 
-#36
+#38
 question = Question.create(question: 'What is Math.ceil(3.6)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '3.0', is_correct: false)
 ans2 = Answer.create( answer: '3', is_correct: false)
@@ -677,10 +695,10 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#37
+#39
 question = Question.create(question: 'What is Math.floor(3.6)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '3.0', is_correct: true)
 ans2 = Answer.create( answer: '3', is_correct: false)
@@ -693,10 +711,10 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#38
+#40
 question = Question.create(question: 'What is Math.sqrt(4.0)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '2', is_correct: false)
 ans2 = Answer.create( answer: '2.5', is_correct: false)
@@ -711,10 +729,10 @@ question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
 
-#39
+#41
 question = Question.create(question: 'What is Math.max(Math.min(3, 6), 2)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '2', is_correct: false)
 ans2 = Answer.create( answer: '3', is_correct: true)
@@ -728,10 +746,10 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
-#40
+#42
 question = Question.create(question: 'What is Math.sin(Math.PI / 2)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '1', is_correct: false)
 ans2 = Answer.create( answer: '0.5', is_correct: false)
@@ -746,10 +764,10 @@ question.question_answers.create(answer_id: ans4.id)
 question.question_answers.create(answer_id: ans5.id)
 
 
-#41
+#43
 question = Question.create(question: 'What is Math.sin(Math.PI / 6)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '1', is_correct: false)
 ans2 = Answer.create( answer: '0.5', is_correct: true)
@@ -761,10 +779,10 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
-#42
+#44
 question = Question.create(question: 'What is Math.asin(0.5)?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat9.id,
+                           level_id: lvl2.id
                            )          
 ans1 = Answer.create( answer: '90', is_correct: false)
 ans2 = Answer.create( answer: '30', is_correct: false)
@@ -777,10 +795,14 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#43
+############################################################################################################
+
+cat10 = Category.create(name: 'Methods' , description: 'Generating Random Characters')
+
+#45
 question = Question.create(question: '(int)(Math.random() * (65535 + 1)) returns a random number __________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat10.id,
+                           level_id: lvl3.id
                            )          
 ans1 = Answer.create( answer: 'between 1 and 65536', is_correct: false)
 ans2 = Answer.create( answer: 'between 1 and 65535', is_correct: false)
@@ -793,10 +815,10 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#44
+#46
 question = Question.create(question: '(int)("a" + Math.random() * ("z" - "a" + 1)) returns a random number __________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat10.id,
+                           level_id: lvl3.id
                            )          
 ans1 = Answer.create( answer: 'between 0 and (int)"z"', is_correct: false)
 ans2 = Answer.create( answer: 'between (int)"a" and (int)"z"', is_correct: true)
@@ -808,10 +830,10 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
-#45
+#47
 question = Question.create(question: '(char)("a" + Math.random() * ("z" - "a" + 1)) returns a random character __________.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat10.id,
+                           level_id: lvl3.id
                            )          
 ans1 = Answer.create( answer: 'between "a" and "z"', is_correct: true)
 ans2 = Answer.create( answer: 'between "a" and "y"', is_correct: false)
@@ -824,10 +846,10 @@ question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
 
-#46
+#48
 question = Question.create(question: 'Which of the following is the best for generating random integer 0 or 1?',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat10.id,
+                           level_id: lvl3.id
                            )          
 ans1 = Answer.create( answer: '(int)Math.random()', is_correct: false)
 ans2 = Answer.create( answer: '(int)Math.random() + 1', is_correct: false)
@@ -843,10 +865,16 @@ question.question_answers.create(answer_id: ans5.id)
 
 
 
-#47
+
+
+############################################################################################################
+
+cat11 = Category.create(name: 'Methods' , description: 'Method Abstraction and Stepwise Refinement')
+
+#49
 question = Question.create(question: '__________ is to implement one method in the structure chart at a time from the top to the bottom.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat11.id,
+                           level_id: lvl3.id
                            )          
 ans1 = Answer.create( answer: 'Bottom-up approach', is_correct: false)
 ans2 = Answer.create( answer: 'Top-down approach', is_correct: true)
@@ -858,10 +886,10 @@ question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
 
-#48
+#50
 question = Question.create(question: '__________ is a simple but incomplete version of a method.',
-                           category_id: cat2.id,
-                           level_id: lvl1.id
+                           category_id: cat11.id,
+                           level_id: lvl3.id
                            )          
 ans1 = Answer.create( answer: 'A stub', is_correct: true)
 ans2 = Answer.create( answer: 'A main method', is_correct: false)
@@ -872,6 +900,325 @@ question.question_answers.create(answer_id: ans1.id)
 question.question_answers.create(answer_id: ans2.id)
 question.question_answers.create(answer_id: ans3.id)
 question.question_answers.create(answer_id: ans4.id)
+
+
+############################################################################################################
+
+cat12 = Category.create(name: 'Single-Dimensional Arrays' , description: 'Array Basics')
+
+
+#51
+question = Question.create(question: 'What is the representation of the third element in an array called a?',
+                           category_id: cat12.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'a[2]', is_correct: true)
+ans2 = Answer.create( answer: 'a(2)', is_correct: false)
+ans3 = Answer.create( answer: 'a[3]', is_correct: false)
+ans4 = Answer.create( answer: 'a(3)', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+
+#52
+question = Question.create(question: 'If you declare an array double[] list = {3.4, 2.0, 3.5, 5.5}, list[1] is ________.',
+                           category_id: cat12.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: '3.4', is_correct: false)
+ans2 = Answer.create( answer: '2.0', is_correct: true)
+ans3 = Answer.create( answer: '3.5', is_correct: false)
+ans4 = Answer.create( answer: '5.5', is_correct: false)
+ans5 = Answer.create( answer: 'undefined', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+question.question_answers.create(answer_id: ans5.id)
+
+
+#53
+question = Question.create(question: 'If you declare an array double[] list = {3.4, 2.0, 3.5, 5.5}, the highest index in array list is __________.',
+                           category_id: cat12.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: '0', is_correct: false)
+ans2 = Answer.create( answer: '1', is_correct: false)
+ans3 = Answer.create( answer: '2', is_correct: false)
+ans4 = Answer.create( answer: '3', is_correct: true)
+ans5 = Answer.create( answer: '4', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+question.question_answers.create(answer_id: ans5.id)
+
+
+
+#54
+question = Question.create(question: 'How many elements are in array double[] list = new double[5]?',
+                           category_id: cat12.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: '4', is_correct: false)
+ans2 = Answer.create( answer: '5', is_correct: true)
+ans3 = Answer.create( answer: '6', is_correct: false)
+ans4 = Answer.create( answer: '0', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+
+#55
+question = Question.create(question: 'What is the correct term for numbers[99]?',
+                           category_id: cat12.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'index', is_correct: false)
+ans2 = Answer.create( answer: 'index variable', is_correct: false)
+ans3 = Answer.create( answer: 'indexed variable', is_correct: true)
+ans4 = Answer.create( answer: 'array variable', is_correct: false)
+ans5 = Answer.create( answer: 'array', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+question.question_answers.create(answer_id: ans5.id)
+
+
+#56
+question = Question.create(question: 'Assume int[] t = {1, 2, 3, 4}. What is t.length?',
+                           category_id: cat12.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: '0', is_correct: false)
+ans2 = Answer.create( answer: '3', is_correct: false)
+ans3 = Answer.create( answer: '4', is_correct: true)
+ans4 = Answer.create( answer: '5', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+#57
+question = Question.create(question: 'The __________ method copies the sourceArray to the targetArray.',
+                           category_id: cat12.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'System.copyArrays(sourceArray, 0, targetArray, 0, sourceArray.length);', is_correct: false)
+ans2 = Answer.create( answer: 'System.copyarrays(sourceArray, 0, targetArray, 0, sourceArray.length);', is_correct: false)
+ans3 = Answer.create( answer: 'System.arrayCopy(sourceArray, 0, targetArray, 0, sourceArray.length);', is_correct: false)
+ans4 = Answer.create( answer: 'System.arraycopy(sourceArray, 0, targetArray, 0, sourceArray.length);', is_correct: true)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+
+cat13 = Category.create(name: 'Single-Dimensional Arrays' , description: 'Passing Arrays to Methods')
+
+
+#58
+question = Question.create(question: 'When you pass an array to a method, the method receives __________.',
+                           category_id: cat13.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'a copy of the array', is_correct: false)
+ans2 = Answer.create( answer: 'a copy of the first element', is_correct: false)
+ans3 = Answer.create( answer: 'the reference of the array', is_correct: true)
+ans4 = Answer.create( answer: 'the length of the array', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+#59
+question = Question.create(question: 'The JVM stores the array in an area of memory, called _______, which is used for dynamic 
+memory allocation where blocks of memory are allocated and freed in an arbitrary order.',
+                           category_id: cat13.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'stack', is_correct: false)
+ans2 = Answer.create( answer: 'heap', is_correct: true)
+ans3 = Answer.create( answer: 'memory block', is_correct: false)
+ans4 = Answer.create( answer: 'dynamic memory', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+
+
+cat14 = Category.create(name: 'Single-Dimensional Arrays' , description: 'Returning an Array from a Method')
+
+
+
+#60
+question = Question.create(question: 'When you return an array from a method, the method returns __________.',
+                           category_id: cat14.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'a copy of the array', is_correct: false)
+ans2 = Answer.create( answer: 'a copy of the first element', is_correct: false)
+ans3 = Answer.create( answer: 'the reference of the array', is_correct: true)
+ans4 = Answer.create( answer: 'the length of the array', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+
+cat15 = Category.create(name: 'Single-Dimensional Arrays' , description: 'Searching Arrays')
+
+
+
+#61
+question = Question.create(question: 'For the binarySearch method in Section 6.9.2, what is low and high after the first iteration
+ of the while loop when invoking binarySearch(new int[]{1, 4, 6, 8, 10, 15, 20}, 11)?',
+                           category_id: cat15.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'low is 0 and high is 6', is_correct: false)
+ans2 = Answer.create( answer: 'low is 0 and high is 3', is_correct: false)
+ans3 = Answer.create( answer: 'low is 3 and high is 6', is_correct: false)
+ans4 = Answer.create( answer: 'low is 4 and high is 6', is_correct: true)
+ans5 = Answer.create( answer: 'low is 0 and high is 5', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+question.question_answers.create(answer_id: ans5.id)
+
+
+#62
+question = Question.create(question: 'If a key is not in the list, the binarySearch method returns _________.',
+                           category_id: cat15.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'insertion point', is_correct: false)
+ans2 = Answer.create( answer: 'insertion point - 1', is_correct: false)
+ans3 = Answer.create( answer: '-(insertion point + 1)', is_correct: true)
+ans4 = Answer.create( answer: '-insertion point', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+
+cat16 = Category.create(name: 'Single-Dimensional Arrays' , description: 'Sorting Arrays')
+
+
+
+#63
+question = Question.create(question: 'Use the selectionSort method presented in this section to answer this question. 
+Assume list is {3.1, 3.1, 2.5, 6.4, 2.1}, what is the content of list after the first iteration of the outer loop in the method?',
+                           category_id: cat16.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: '3.1, 3.1, 2.5, 6.4, 2.1', is_correct: false)
+ans2 = Answer.create( answer: '2.5, 3.1, 3.1, 6.4, 2.1', is_correct: false)
+ans3 = Answer.create( answer: '2.1, 2.5, 3.1, 3.1, 6.4', is_correct: false)
+ans4 = Answer.create( answer: '3.1, 3.1, 2.5, 2.1, 6.4', is_correct: false)
+ans5 = Answer.create( answer: '2.1, 3.1, 2.5, 6.4, 3.1', is_correct: true)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+question.question_answers.create(answer_id: ans5.id)
+
+
+cat17 = Category.create(name: 'Single-Dimensional Arrays' , description: 'The Arrays Class')
+
+
+#64
+question = Question.create(question: 'The __________ method sorts the array scores of the double[] type.',
+                           category_id: cat17.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'java.util.Arrays(scores)', is_correct: false)
+ans2 = Answer.create( answer: 'java.util.Arrays.sorts(scores)', is_correct: false)
+ans3 = Answer.create( answer: 'java.util.Arrays.sort(scores)', is_correct: true)
+ans4 = Answer.create( answer: 'Njava.util.Arrays.sortArray(scores)', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+#65
+question = Question.create(question: 'Assume int[] scores = {1, 20, 30, 40, 50}, what value does java.util.Arrays.binarySearch(scores, 30) return?',
+                           category_id: cat17.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: '0', is_correct: false)
+ans2 = Answer.create( answer: '-1', is_correct: false)
+ans3 = Answer.create( answer: '1', is_correct: false)
+ans4 = Answer.create( answer: '2', is_correct: true)
+ans5 = Answer.create( answer: '-2', is_correct: false)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+question.question_answers.create(answer_id: ans5.id)
+
+
+#66
+question = Question.create(question: 'Assume int[] scores = {1, 20, 30, 40, 50}, what value does java.util.Arrays.binarySearch(scores, 3) return?',
+                           category_id: cat17.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: '0', is_correct: false)
+ans2 = Answer.create( answer: '-1', is_correct: false)
+ans3 = Answer.create( answer: '1', is_correct: false)
+ans4 = Answer.create( answer: '2', is_correct: false)
+ans5 = Answer.create( answer: '-2', is_correct: true)
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+question.question_answers.create(answer_id: ans5.id)
+
+
+#66
+question = Question.create(question: 'Assume int[] scores = {3, 4, 1, 9, 13}, which of the following statement displays all the element values in the array?',
+                           category_id: cat17.id,
+                           level_id: lvl3.id
+                           )          
+ans1 = Answer.create( answer: 'System.out.println(scores);', is_correct: false)
+ans2 = Answer.create( answer: 'System.out.println(scores.toString());', is_correct: false)
+ans3 = Answer.create( answer: 'System.out.println(java.util.Arrays.toString(scores)); *', is_correct: false)
+ans4 = Answer.create( answer: 'System.out.println(scores[0]);', is_correct: false)
+
+
+question.question_answers.create(answer_id: ans1.id)
+question.question_answers.create(answer_id: ans2.id)
+question.question_answers.create(answer_id: ans3.id)
+question.question_answers.create(answer_id: ans4.id)
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,8 @@ class QuizController < ApplicationController
       @quiz.save
 
       @questions = Question.limit(10).order("RANDOM()")
-    @quiz.questions << @questions
+      @quiz.questions << @questions
+            
 
     else
       @quiz.title = 'Quiz '+ @level_name.name.to_s
