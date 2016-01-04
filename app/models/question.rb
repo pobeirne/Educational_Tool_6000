@@ -1,6 +1,4 @@
 class Question < ActiveRecord::Base
-  
-  paginates_per 5  
   has_one :category
   has_one :level
   has_many :question_answers
